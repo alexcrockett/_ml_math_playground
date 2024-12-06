@@ -38,12 +38,12 @@ def daily_values(market_response):
 	# -----------------------------------------------------------
 	# value_day = []  # Create an empty list to populate
 	# for date, values in daily_data.items():  # For loop to iterate through the values
-		# daily_open = float(values['1. open'])
-		# daily_high = float(values['2. high'])
-		# daily_low = float(values['3. low'])
-		# daily_close = float(values['4. close'])
-		# daily_volume = float(values['5. volume'])
-		# value_day.append([date, daily_open, daily_high, daily_low, daily_close, daily_volume])  # Add these values to the list
+	# daily_open = float(values['1. open'])
+	# daily_high = float(values['2. high'])
+	# daily_low = float(values['3. low'])
+	# daily_close = float(values['4. close'])
+	# daily_volume = float(values['5. volume'])
+	# value_day.append([date, daily_open, daily_high, daily_low, daily_close, daily_volume])  # Add these values to the list
 	return value_day
 
 # Slice the list such that we only take the last 300 values from each stock
@@ -60,18 +60,23 @@ def daily_frame(value_day_index):
 def print_list(daily_training_frame):
 	print(daily_training_frame)
 
-# Define the operation of the file
+def data_dict(daily_training_frame):
+	for stock in training_stocks:
+		data_frames = {f'daily_frame_{stock}': daily_training_frame}
+	return data_frames
+
 def main():
-	data_frames = {}  # Create a dictionary we will store the dataframes in for later access
+	# data_frames = {}  # Create a dictionary we will store the dataframes in for later access
 	for stock in training_stocks:  # Indicate we want to iterate through the list
 		print(f"\nProcessing {stock}...\n")
-		# Notice the dataflow in the code below!
-		daily_api = daily_ticker(stock)  # Format the api
+		daily_api = daily_ticker(stock)  # Format the API
 		value_day = daily_source(daily_api)  # Get the data from the API
 		value_day_index = indexed_list(value_day)  # Slice the data
 		daily_training_frame = daily_frame(value_day_index)  # Get our dataframes
-		data_frames[f'daily_frame_{stock}'] = daily_training_frame  # Store the frames in the above defined dictionary
-		print_list(daily_training_frame)  # Do the print check
+		data_frames = data_dict(daily_training_frame)
+	# data_frames[f'daily_frame_{stock}'] = daily_training_frame  # Store the frames in the above defined dictionary
+	# print_list(daily_training_frame)  # Do the print check
+	return data_frames  # Return the dictionary
 
 if __name__ == "__main__":
-	main()
+	all_frames = main()  # Store the returned value in a variable
