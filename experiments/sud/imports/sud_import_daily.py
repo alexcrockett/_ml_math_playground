@@ -7,7 +7,7 @@ import pandas as pd  # Build dataframe
 # We will need to identify the stocks and iterate through them to build our training set
 # This is a list of ETFs that we will treat as the stock tickers we will use for training
 training_stocks = ['NOBL', 'VYMI', 'PEY', 'XLE', 'VYM', 'HDV', 'SCHD',
-				   'DGRO', 'VYM', 'HDV', 'JNK', 'HYG', 'SCHD', 'IXUS',
+				   'DGRO', 'HDV', 'JNK', 'HYG', 'SCHD', 'IXUS',
 				   'LIT', 'SPHD', 'ISCF', 'HSCZ', 'HDEF', 'PCY', 'BNDX']
 
 # Daily data (Separate files for week and month) ___________________________
