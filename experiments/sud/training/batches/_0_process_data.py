@@ -1,8 +1,15 @@
 import sys
 import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'imports')))
+
+# Add the path to the 'training' directory (one level up from 'batches')
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+
+# Add the path to the 'imports' directory (two levels up and then into 'imports')
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'imports')))
+
+# Import the module
 from imports import sud_import_daily as sud
+
 
 # Call the main function to get the data frames
 all_frames = sud.main()
