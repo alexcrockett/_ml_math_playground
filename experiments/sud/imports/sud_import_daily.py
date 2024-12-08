@@ -10,7 +10,8 @@ training_stocks = ['NOBL', 'VYMI', 'PEY', 'XLE', 'VYM', 'HDV', 'SCHD',
 				   'DGRO', 'HDV', 'JNK', 'HYG', 'SCHD', 'IXUS', 'DJIA',
 				   'LIT', 'SPHD', 'ISCF', 'HSCZ', 'HDEF', 'PCY', 'BNDX',
 				   'SMX', 'HEFA', 'IYK', 'OIL', 'XLF', 'VFH', 'KRE',
-				   'IYF', 'FNCL', 'QQQ', 'SPY']
+				   'IYF', 'FNCL', 'QQQ', 'SPY', 'VTI', 'ITOT', 'XLK',
+				   'XLY', 'XLV', 'EEM', 'VEU', 'VB']
 
 
 # Daily data (Separate files for week and month) ___________________________
