@@ -36,7 +36,7 @@ Each of the stocks/funds listed below will each have 500 entries entered to trai
 
 5. **Specialty and Niche Areas**:
     - **LIT** (Global X Lithium & Battery Tech ETF) and 
-    - **OIL** (iPath Series B S&P GSCI Crude Oil Total Return Index ETN) cover specific commodities and tech sectors.
+    - **USOI** (UBS ETRACS Crude Oil Shares Covered Call)
 
 6. **Broad ETFs**:
     - **HDV** (iShares Core High Dividend ETF), 

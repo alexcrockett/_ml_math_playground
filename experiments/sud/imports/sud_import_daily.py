@@ -9,7 +9,7 @@ import pandas as pd  # Build dataframe
 training_stocks = ['NOBL', 'VYMI', 'PEY', 'XLE', 'VYM', 'HDV', 'SCHD',
 				   'DGRO', 'HDV', 'JNK', 'HYG', 'SCHD', 'IXUS', 'DJIA',
 				   'LIT', 'SPHD', 'ISCF', 'HSCZ', 'HDEF', 'PCY', 'BNDX',
-				   'SMX', 'HEFA', 'IYK', 'OIL', 'XLF', 'VFH', 'KRE',
+				   'SMX', 'HEFA', 'IYK', 'USOI', 'XLF', 'VFH', 'KRE',
 				   'IYF', 'FNCL', 'QQQ', 'SPY', 'VTI', 'ITOT', 'XLK',
 				   'XLY', 'XLV', 'EEM', 'VEU', 'VB']
 
