@@ -3,33 +3,35 @@ import os, sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import _0_process_data
 
-batched_data = _0_process_data.batched_data
+# Call batched data for the given stock
+def get_batches(stock_symbol):
+	batched_data = _0_process_data.batched_data
+	batch_stock = batched_data[stock_symbol]
 
+	# Dictionary to store each batch DataFrame
+	batch_dataframes = {}
 
-djia = 'DJIA'
-batch_djia = batched_data[djia]
+	for i, batch in enumerate(batch_stock):
+		print(f"\nBatch {i+1} for {stock_symbol}:\n")
+		stock_batches = pd.DataFrame(batch)
+		batch_dataframes[f'djia_batch_{i+1}'] = stock_batches  # Store in dictionary
 
-# Dictionary to store each batch DataFrame
-batch_dataframes = {}
+	return batch_dataframes
 
-for i, batch in enumerate(batch_djia):
-	print(f"\nBatch {i+1} for {djia}:\n")
-	djia_batches = pd.DataFrame(batch)
-	batch_dataframes[f'djia_batch_{i+1}'] = djia_batches  # Store in dictionary
+# Call and make batches
+def main():
+	stock_symbol = 'DJIA'
+	batch_dataframes = get_batches(stock_symbol)
 
-# The first batch
-djia_batch_1 = batch_dataframes['djia_batch_1']
+	# Accessing specific batches
+	djia_batch_1 = batch_dataframes[f'{stock_symbol.lower()}_batch_1']
+	djia_batch_2 = batch_dataframes[f'{stock_symbol.lower()}_batch_2']
+	djia_batch_3 = batch_dataframes[f'{stock_symbol.lower()}_batch_3']
+	djia_batch_4 = batch_dataframes[f'{stock_symbol.lower()}_batch_4']
+	djia_batch_5 = batch_dataframes[f'{stock_symbol.lower()}_batch_5']
 
-# The second batch
-djia_batch_2 = batch_dataframes['djia_batch_2']
+	# Print the first batch for demonstration
+	print(djia_batch_1.head())
 
-# The third batch
-djia_batch_3 = batch_dataframes['djia_batch_3']
-
-# The fourth batch
-djia_batch_4 = batch_dataframes['djia_batch_4']
-
-# The fifth batch
-djia_batch_5 = batch_dataframes['djia_batch_5']
-
-
+if __name__ == "__main__":
+	main()

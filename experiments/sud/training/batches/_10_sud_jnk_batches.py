@@ -3,33 +3,35 @@ import os, sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import _0_process_data
 
-batched_data = _0_process_data.batched_data
+# Call batched data for the given stock
+def get_batches(stock_symbol):
+	batched_data = _0_process_data.batched_data
+	batch_stock = batched_data[stock_symbol]
 
+	# Dictionary to store each batch DataFrame
+	batch_dataframes = {}
 
-jnk = 'JNK'
-batch_jnk = batched_data[jnk]
+	for i, batch in enumerate(batch_stock):
+		print(f"\nBatch {i+1} for {stock_symbol}:\n")
+		stock_batches = pd.DataFrame(batch)
+		batch_dataframes[f'jnk_batch_{i+1}'] = stock_batches  # Store in dictionary
 
-# Dictionary to store each batch DataFrame
-batch_dataframes = {}
+	return batch_dataframes
 
-for i, batch in enumerate(batch_jnk):
-	print(f"\nBatch {i+1} for {jnk}:\n")
-	jnk_batches = pd.DataFrame(batch)
-	batch_dataframes[f'jnk_batch_{i+1}'] = jnk_batches  # Store in dictionary
+# Call and make batches
+def main():
+	stock_symbol = 'JNK'
+	batch_dataframes = get_batches(stock_symbol)
 
-# The first batch
-jnk_batch_1 = batch_dataframes['jnk_batch_1']
+	# Accessing specific batches
+	jnk_batch_1 = batch_dataframes[f'{stock_symbol.lower()}_batch_1']
+	jnk_batch_2 = batch_dataframes[f'{stock_symbol.lower()}_batch_2']
+	jnk_batch_3 = batch_dataframes[f'{stock_symbol.lower()}_batch_3']
+	jnk_batch_4 = batch_dataframes[f'{stock_symbol.lower()}_batch_4']
+	jnk_batch_5 = batch_dataframes[f'{stock_symbol.lower()}_batch_5']
 
-# The second batch
-jnk_batch_2 = batch_dataframes['jnk_batch_2']
+	# Print the first batch for demonstration
+	print(jnk_batch_1.head())
 
-# The third batch
-jnk_batch_3 = batch_dataframes['jnk_batch_3']
-
-# The fourth batch
-jnk_batch_4 = batch_dataframes['jnk_batch_4']
-
-# The fifth batch
-jnk_batch_5 = batch_dataframes['jnk_batch_5']
-
-
+if __name__ == "__main__":
+	main()

@@ -3,33 +3,35 @@ import os, sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import _0_process_data
 
-batched_data = _0_process_data.batched_data
+# Call batched data for the given stock
+def get_batches(stock_symbol):
+	batched_data = _0_process_data.batched_data
+	batch_stock = batched_data[stock_symbol]
 
+	# Dictionary to store each batch DataFrame
+	batch_dataframes = {}
 
-smx = 'SMX'
-batch_smx = batched_data[smx]
+	for i, batch in enumerate(batch_stock):
+		print(f"\nBatch {i+1} for {stock_symbol}:\n")
+		stock_batches = pd.DataFrame(batch)
+		batch_dataframes[f'smx_batch_{i+1}'] = stock_batches  # Store in dictionary
 
-# Dictionary to store each batch DataFrame
-batch_dataframes = {}
+	return batch_dataframes
 
-for i, batch in enumerate(batch_smx):
-	print(f"\nBatch {i+1} for {smx}:\n")
-	smx_batches = pd.DataFrame(batch)
-	batch_dataframes[f'smx_batch_{i+1}'] = smx_batches  # Store in dictionary
+# Call and make batches
+def main():
+	stock_symbol = 'SMX'
+	batch_dataframes = get_batches(stock_symbol)
 
-# The first batch
-smx_batch_1 = batch_dataframes['smx_batch_1']
+	# Accessing specific batches
+	smx_batch_1 = batch_dataframes[f'{stock_symbol.lower()}_batch_1']
+	smx_batch_2 = batch_dataframes[f'{stock_symbol.lower()}_batch_2']
+	smx_batch_3 = batch_dataframes[f'{stock_symbol.lower()}_batch_3']
+	smx_batch_4 = batch_dataframes[f'{stock_symbol.lower()}_batch_4']
+	smx_batch_5 = batch_dataframes[f'{stock_symbol.lower()}_batch_5']
 
-# The second batch
-smx_batch_2 = batch_dataframes['smx_batch_2']
+	# Print the first batch for demonstration
+	print(smx_batch_1.head())
 
-# The third batch
-smx_batch_3 = batch_dataframes['smx_batch_3']
-
-# The fourth batch
-smx_batch_4 = batch_dataframes['smx_batch_4']
-
-# The fifth batch
-smx_batch_5 = batch_dataframes['smx_batch_5']
-
-
+if __name__ == "__main__":
+	main()

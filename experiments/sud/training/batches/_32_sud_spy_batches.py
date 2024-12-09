@@ -14,24 +14,24 @@ def get_batches(stock_symbol):
 	for i, batch in enumerate(batch_stock):
 		print(f"\nBatch {i+1} for {stock_symbol}:\n")
 		stock_batches = pd.DataFrame(batch)
-		batch_dataframes[f'hefa_batch_{i+1}'] = stock_batches  # Store in dictionary
+		batch_dataframes[f'spy_batch_{i+1}'] = stock_batches  # Store in dictionary
 
 	return batch_dataframes
 
 # Call and make batches
 def main():
-	stock_symbol = 'HEFA'
+	stock_symbol = 'SPY'
 	batch_dataframes = get_batches(stock_symbol)
 
 	# Accessing specific batches
-	hefa_batch_1 = batch_dataframes[f'{stock_symbol.lower()}_batch_1']
-	hefa_batch_2 = batch_dataframes[f'{stock_symbol.lower()}_batch_2']
-	hefa_batch_3 = batch_dataframes[f'{stock_symbol.lower()}_batch_3']
-	hefa_batch_4 = batch_dataframes[f'{stock_symbol.lower()}_batch_4']
-	hefa_batch_5 = batch_dataframes[f'{stock_symbol.lower()}_batch_5']
+	spy_batch_1 = batch_dataframes[f'{stock_symbol.lower()}_batch_1']
+	spy_batch_2 = batch_dataframes[f'{stock_symbol.lower()}_batch_2']
+	spy_batch_3 = batch_dataframes[f'{stock_symbol.lower()}_batch_3']
+	spy_batch_4 = batch_dataframes[f'{stock_symbol.lower()}_batch_4']
+	spy_batch_5 = batch_dataframes[f'{stock_symbol.lower()}_batch_5']
 
 	# Print the first batch for demonstration
-	print(hefa_batch_1.head())
+	print(spy_batch_1.head())
 
 if __name__ == "__main__":
 	main()
