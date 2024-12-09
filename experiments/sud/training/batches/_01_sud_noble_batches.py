@@ -29,9 +29,10 @@ def main():
 	nob_batch_3 = batch_dataframes[f'{stock_symbol.lower()}_batch_3']
 	nob_batch_4 = batch_dataframes[f'{stock_symbol.lower()}_batch_4']
 	nob_batch_5 = batch_dataframes[f'{stock_symbol.lower()}_batch_5']
-
+	nob_list = [nob_batch_1, nob_batch_2, nob_batch_3, nob_batch_4, nob_batch_5]
 	# Print the first batch for demonstration
 	print(nob_batch_1.head())
+	return nob_list
 
 if __name__ == "__main__":
 	main()

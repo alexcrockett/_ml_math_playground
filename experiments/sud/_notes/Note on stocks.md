@@ -2,7 +2,7 @@
 
 The following set of stocks was compiled to create as well-rounded and robust a training set as possible. The assumption being that by using funds that either; have exposure to the stock market as a whole, or that have exposure to areas of the market that, broadly speaking, reflect financial behavior, a model would be trained on a realistic perspective of markets.
 
-Each of the stocks/funds listed below will each have 500 entries entered to train the model in batches of 100. That means there will be 20,000 total rows processed over the course of the first round of training. From the original import of 5 years, an additional 3 years worth of data will remain unused and available for further training epochs. 
+Each of the stocks/funds listed below will each have 500 entries entered to train the model in batches of 100. That means there will be 20,000 total rows processed over the course of the first round of training. From the original import of 5 years, an additional 3+ years worth of data will remain unused and available for further training epochs. 
 
 1. **Broad Market Exposure**:
     - **SPY** (S&P 500 ETF) and 
