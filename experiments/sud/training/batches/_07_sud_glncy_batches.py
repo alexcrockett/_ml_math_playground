@@ -14,24 +14,24 @@ def get_batches(stock_symbol):
 	for i, batch in enumerate(batch_stock):
 		print(f"\nBatch {i+1} for {stock_symbol}:\n")
 		stock_batches = pd.DataFrame(batch)
-		batch_dataframes[f'hdv_batch_{i+1}'] = stock_batches  # Store in dictionary
+		batch_dataframes[f'glncy_batch_{i+1}'] = stock_batches  # Store in dictionary
 
 	return batch_dataframes
 
 # Call and make batches
 def main():
-	stock_symbol = 'HDV'
+	stock_symbol = 'GLNCY'
 	batch_dataframes = get_batches(stock_symbol)
 
 	# Accessing specific batches
-	hdv_batch_1 = batch_dataframes[f'{stock_symbol.lower()}_batch_1']
-	hdv_batch_2 = batch_dataframes[f'{stock_symbol.lower()}_batch_2']
-	hdv_batch_3 = batch_dataframes[f'{stock_symbol.lower()}_batch_3']
-	hdv_batch_4 = batch_dataframes[f'{stock_symbol.lower()}_batch_4']
-	hdv_batch_5 = batch_dataframes[f'{stock_symbol.lower()}_batch_5']
+	glncy_batch_1 = batch_dataframes[f'{stock_symbol.lower()}_batch_1']
+	glncy_batch_2 = batch_dataframes[f'{stock_symbol.lower()}_batch_2']
+	glncy_batch_3 = batch_dataframes[f'{stock_symbol.lower()}_batch_3']
+	glncy_batch_4 = batch_dataframes[f'{stock_symbol.lower()}_batch_4']
+	glncy_batch_5 = batch_dataframes[f'{stock_symbol.lower()}_batch_5']
 
 	# Print the first batch for demonstration
-	print(hdv_batch_1.head())
+	print(glncy_batch_1.head())
 
 if __name__ == "__main__":
 	main()
