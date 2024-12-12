@@ -4,8 +4,8 @@
 import yfinance as yfin
 import pandas as pd  # Build dataframe
 
-# We will need to identify the stocks and iterate through them to build our training set
-# This is a list of ETFs that we will treat as the stock tickers we will use for training
+# We will need to identify the stocks and iterate through them to build our tanh_training set
+# This is a list of ETFs that we will treat as the stock tickers we will use for tanh_training
 training_stocks = ['NOBL', 'VYMI', 'PEY', 'XLE', 'VYM', 'HDV', 'GLNCY',
 				   'DGRO', 'HDV', 'JNK', 'HYG', 'SCHD', 'IXUS', 'DJIA',
 				   'LIT', 'SPHD', 'ISCF', 'HSCZ', 'HDEF', 'PCY', 'BNDX',
@@ -43,7 +43,7 @@ def indexed_list(value_day):
 
 # Take the sliced list and build a dataframe for each set of values
 def daily_frame(value_day_index):
-	daily_training_frame = pd.DataFrame(value_day_index, columns=['Date', 'Open', 'High', 'Low', 'Close', 'Volume'])
+	daily_training_frame = pd.DataFrame(value_day_index, columns=['Open', 'High', 'Low', 'Close', 'Volume'])
 	return daily_training_frame
 
 

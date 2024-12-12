@@ -5,8 +5,8 @@
 import yfinance as yfin
 import pandas as pd  # Build dataframe
 
-# We will need to identify the stocks and iterate through them to build our training set
-# This is a list of ETFs that we will treat as the stock tickers we will use for training
+# We will need to identify the stocks and iterate through them to build our tanh_training set
+# This is a list of ETFs that we will treat as the stock tickers we will use for tanh_training
 training_stocks = ['NOBL', 'VYMI', 'PEY', 'XLE', 'VYM', 'HDV', 'SCHD',
 				   'DGRO', 'VYM', 'HDV', 'JNK', 'HYG', 'SCHD', 'IXUS',
 				   'LIT', 'SPHD', 'ISCF', 'HSCZ', 'HDEF', 'PCY', 'BNDX']
