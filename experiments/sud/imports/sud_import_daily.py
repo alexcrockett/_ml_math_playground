@@ -51,7 +51,7 @@ def daily_frame(value_day_index):
 def main():
 	data_frames = {}  # Create a dictionary to store the dataframes
 	for stock in training_stocks:  # Iterate through the stock list
-		print(f"\nProcessing {stock}...\n")
+		# print(f"\nProcessing {stock}...\n")
 		daily_api = daily_ticker(stock)  # Format the API
 		value_day = daily_source(daily_api)  # Get the data from the API
 		value_day_index = indexed_list(value_day)  # Slice the data
