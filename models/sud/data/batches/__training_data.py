@@ -5,7 +5,7 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'batches')))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'imports')))
-from experiments.sud.tanh_training.batches.__pull_batches import get_training_data
+from models.sud.data.batches.__pull_batches import get_training_data
 training_data = get_training_data()
 
 # Data for NOBL____________________________________________________________________________

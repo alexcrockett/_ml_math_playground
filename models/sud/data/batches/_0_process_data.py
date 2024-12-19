@@ -1,11 +1,11 @@
 import sys
 import os
 
-# Add the path to the 'tanh_training' directory (one level up from 'batches')
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+# Add the path to the 'data' directory (one level up from 'batches')
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 # Add the path to the 'imports' directory (two levels up and then into 'imports')
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'imports')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'imports')))
 
 # Import the module
 from imports import sud_import_daily as sud
