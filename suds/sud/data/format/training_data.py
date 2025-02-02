@@ -8,7 +8,7 @@ import math
 # Import paths
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'imports')))
-from suds.sud.imports.sud_import_daily import main as bat
+from suds.sud.imports._import_ import main as bat
 
 # Fetch and format data
 all_batches = bat()
@@ -47,8 +47,8 @@ def batch_values(value_dat):
 	signed_p = p_values * value_signs
 
 	# Prepend original values
-	origin_t = np.transpose(start)
-	value_stack = np.vstack([origin_t, transformed_data, values_var, values_std, signed_p])  # Add stats as features
+	# origin_t = np.transpose(start)
+	value_stack = np.vstack([values_var, values_std, transformed_data, signed_p])  # Add stats as features
 	values = value_stack
 	return values
 

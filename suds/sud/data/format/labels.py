@@ -33,15 +33,15 @@ def label_calc(stock_index, batch_number):
 	data_for_labels = get_specific_batch(stock_index, batch_number)
 
 	for index, batch in enumerate(data_for_labels):
-		slice_for_labels = batch[5:9]  # Slice the relevant part of the data
+		slice_for_labels = batch[2:6]  # Slice the relevant part of the data
 		quantiles = [np.quantile(slice_for_labels, q) for q in np.arange(0.1, 1, 0.1)]  # Calculate quantiles
 		direction = np.sign(slice_for_labels[1])  # Get the sign direction (assuming you need this for labels)
-		sums = np.sum(slice_for_labels, axis=0)  # Sum the slice
+		max = np.max(slice_for_labels, axis=0)  # Sum the slice
 
 		# Binning based on quantiles
-		for s in sums:
+		for m in max:
 			for i, quant in enumerate(quantiles):
-				if s <= quant:
+				if m <= quant:
 					label_holder.append((i+1)/10)  # Assign 0.1, 0.2, ..., 0.9 based on quantile
 					break
 			else:

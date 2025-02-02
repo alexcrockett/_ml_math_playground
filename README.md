@@ -13,5 +13,5 @@ These include:
 - Numerical Python published by Apress and written by Robert Johansson. [The repo for this book is available on Github](https://github.com/Apress/Numerical-Python-3rd-ed)
 - Machine Learning Specialization by Andrew Ng, available on Coursera and [here on Github](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera)
 - Hands on Machine Learning by Aurélien Geron, available via O'Reiley and [here on Github](https://github.com/ageron/handson-ml3)
+- Essential Math for AI by Hala Nelson, also available from O'Reiley and available [here on Github](https://github.com/halanelson/Essential-Math-For-AI)
 
-I will continue to update these references as I go.

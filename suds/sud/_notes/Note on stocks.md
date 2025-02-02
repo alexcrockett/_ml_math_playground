@@ -1,4 +1,4 @@
-# Notes on stocks included in training
+ # Notes on stocks included in training
 
 The following set of stocks was compiled to create as well-rounded and robust a training set as possible. The assumption being that by using funds that either; have exposure to the stock market as a whole, or that have exposure to areas of the market that, broadly speaking, reflect financial behavior, a model would be trained on a realistic perspective of markets.
 

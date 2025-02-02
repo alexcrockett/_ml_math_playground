@@ -1,0 +1,53 @@
+## In this notes
+- General model structure
+- Files and file structure
+- Training batches and batch sizes
+- Data transformations
+  - Model input data
+  - Training labels
+
+
+## General structure
+- Data is imported from the yfinance api
+- Data is transformed and labelled
+- Values are then passed through a model
+  - Values are copied 
+    - Copy 1 multiplied by 1
+      - Negative values are labeled at -infinity
+    - Copy 2 multiplied by -1 
+      - Negative values are labeled at -infinity
+    - -4 bias added to both copies
+  - Tanh is the activation function
+  - Gelu is used as a middle layer
+  - The data is then passed through a softmax function
+
+## Files and file structure
+
+- **Imports directory**: Data is imported from yfinance api. It is then formatted such that it can be transformed for further processing.
+- **Data directory**: Data is transformed. for training, labels and post-training use.
+- **Activation directory**: All the machine processing is done here. Weights are stored in their own file, as are different steps in processing.
+
+## Training batches and batch sizes
+For each stock used in training there will be 5 batches of 100 days of stock prices. See the notes on stocks for more information of the selection of training stocks.
+
+## Data:
+
+### Data transformations
+
+Data goes through the following transformations:
+- The difference between two days is calculated by subtracting yesterday's values (Open, High, Low, Close, Volume) from today's.
+- The transpose of the resulting array then forms a series such that is day's data is a vector (column).
+- The data is then normalized in two steps.
+  - The magnitude of the column is divided from the change, creating a unit vector of sorts.
+  - The Manhatten norm is then calculated and this is then divided out of the data.
+- The variance and standard deviation of after the first step are taken and placed in the first two rows.
+- Next, probability values are calculated by taken the z-scores and then using the cumulative distribution function.
+- Probabilities are then multiplied by the sign of the original change, giving both negative and positive probabilities.
+- This is then appended to the end of the vector.
+- The final array consists of vectors with 12 rows.
+
+The transformations above are intended to capture price changes and more importantly the direction and variability of the price changes. The direction of the change is also very important, as this will be an important input into the model.
+
+### Labels
+Label creation is fairly straightforward. The goal of the labels is to help associate both a sense of magnitude and direction into the network. The label making function builds labels from the arrays created in the data transformations. Specifically, it takes the slice without the probabilities and without the variance or standard deviations, i.e. the differences in price. It then selects the largest value from each vector and gives it a score, 01 through 0.9 based on where it falls in a sorted list of all the values in the matrix. These values are then given the sign of the high for that day.
+ 
